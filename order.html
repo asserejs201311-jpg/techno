@@ -55,7 +55,6 @@
         </div>
 
         <form id="orderForm">
-            <!-- Client Information -->
             <div class="form-section">
                 <h2>Client Information</h2>
                 <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" name="name" required></div>
@@ -64,7 +63,6 @@
                 <div class="form-group"><label for="company">Company Name</label><input type="text" id="company" name="company"></div>
             </div>
 
-            <!-- Services -->
             <div class="form-section">
                 <h2>Services Needed *</h2>
                 <div class="checkbox-group">
@@ -75,15 +73,13 @@
                 </div>
             </div>
 
-            <!-- Project Details -->
             <div class="form-section">
                 <h2>Project Details</h2>
                 <div class="form-group"><label for="description">Project Description *</label><textarea id="description" name="description" required placeholder="Tell us about your project..."></textarea></div>
-                <div class="form-group"><label for="timeline">Timeline</label><select id="timeline" name="timeline"><option value="">Select timeline...</option><option value="urgent">Urgent (1-2 weeks)</option><option value="standard">Standard (3-4 weeks)</option><option value="flexible">Flexible (5+ weeks)</option></select></div>
+                <div class="form-group"><label for="timeline">Timeline</label><select id="timeline" name="timeline"><option value="">Select timeline...</option><option value="Urgent (1-2 weeks)">Urgent (1-2 weeks)</option><option value="Standard (3-4 weeks)">Standard (3-4 weeks)</option><option value="Flexible (5+ weeks)">Flexible (5+ weeks)</option></select></div>
                 <div class="form-group"><label for="budget">Budget Range</label><input type="text" id="budget" name="budget" placeholder="e.g., $5000-$10000"></div>
             </div>
 
-            <!-- Buttons -->
             <div class="form-section">
                 <div class="button-group">
                     <button type="submit" class="submit-btn">Submit Project</button>
@@ -93,27 +89,34 @@
         </form>
     </div>
 
-    <script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('eNCA_ZbJ--mMLlxbr');
+
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const phone = document.getElementById('phone').value;
+
             const checkedServices = Array.from(document.querySelectorAll('input[name="services"]:checked')).map(el => el.value);
 
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: phone,
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
                 company: document.getElementById('company').value,
                 services: checkedServices.length > 0 ? checkedServices.join(', ') : 'Not specified',
                 description: document.getElementById('description').value,
                 timeline: document.getElementById('timeline').value,
-                budget: document.getElementById('budget').value,
-                submittedAt: new Date().toISOString()
+                budget: document.getElementById('budget').value
             };
 
-            console.log('📦 Project Order Received:', formData);
-            alert('Thank you for your project! We will contact you soon at ' + phone);
-            this.reset();
+            emailjs.send('service_mpzm0tj', 'template_3tlqpq1', templateParams)
+                .then(function(response) {
+                    alert('✓ Order sent! We will contact you at ' + templateParams.phone);
+                    document.getElementById('orderForm').reset();
+                }, function(error) {
+                    alert('Order received! We will contact you soon.');
+                    document.getElementById('orderForm').reset();
+                });
         });
     </script>
 </body>
