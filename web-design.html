@@ -3,122 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design - Studio Design</title>
+    <title>Web Design - STUDIO</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/build/index.min.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; color: #1a1a1a; background: #ffffff; }
-        header { background: #ffffff; border-bottom: 1px solid #f0f0f0; padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; }
-        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.3rem; font-weight: 700; color: #000; text-decoration: none; }
-        .back-link { color: #666; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-        .back-link:hover { color: #000; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
-        .service-header { margin-bottom: 3rem; animation: fadeInUp 0.8s ease-out; }
-        .service-header h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 700; line-height: 1.1; }
-        .service-header p { font-size: 1.1rem; color: #666; line-height: 1.8; max-width: 700px; }
-        .service-specs { background: #f9f9f9; padding: 2.5rem; border-radius: 6px; margin-bottom: 3rem; animation: fadeInUp 0.8s ease-out 0.2s both; }
-        .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-        .spec-item h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 0.75rem; font-weight: 600; }
-        .spec-item p { font-size: 1rem; color: #333; font-weight: 500; }
-        .why-section { margin-bottom: 3rem; animation: fadeInUp 0.8s ease-out 0.4s both; }
-        .why-section h2 { font-size: 2rem; margin-bottom: 1.5rem; font-weight: 700; }
-        .why-list { list-style: none; display: grid; gap: 1.5rem; }
-        .why-list li { padding: 1.5rem; background: #f9f9f9; border-radius: 6px; border-left: 4px solid #000; }
-        .why-list strong { display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .why-list p { color: #666; line-height: 1.7; }
-        .form-section { background: #000; color: white; padding: 3rem; border-radius: 6px; animation: fadeInUp 0.8s ease-out 0.6s both; }
-        .form-section h2 { font-size: 1.8rem; margin-bottom: 0.5rem; font-weight: 700; }
-        .form-section p { margin-bottom: 2rem; opacity: 0.9; }
-        .form-group { margin-bottom: 1.5rem; }
-        label { display: block; font-weight: 500; margin-bottom: 0.6rem; font-size: 0.95rem; }
-        input[type="text"], input[type="email"], input[type="tel"], textarea { width: 100%; padding: 0.85rem; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: white; font-family: inherit; font-size: 0.95rem; }
-        input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.6); }
-        input:focus, textarea:focus { outline: none; border-color: white; background: rgba(255, 255, 255, 0.1); }
-        textarea { min-height: 100px; resize: vertical; }
-        .submit-btn { background: white; color: #000; padding: 1rem 2rem; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 0.95rem; width: 100%; }
-        .submit-btn:hover { background: #f0f0f0; transform: translateY(-2px); }
-        @keyframes slideInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            color: #000000;
+        }
+
+        header {
+            padding: 2rem 3rem;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.6;
+        }
+
+        .service-header {
+            padding: 4rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .service-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-header p {
+            font-size: 1.1rem;
+            color: #666666;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 3rem;
+        }
+
+        .spec-item {
+            padding: 2rem;
+            border: 2px solid #000000;
+            animation: scaleIn 0.8s ease-out;
+        }
+
+        .spec-item h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #666666;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-item p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .benefits-section {
+            padding: 4rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefits-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .benefit-item {
+            padding: 1.5rem;
+            border-left: 4px solid #000000;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .benefit-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-item p {
+            color: #666666;
+            font-size: 0.95rem;
+        }
+
+        /* Form Styles */
+        .form-section {
+            background: #000000;
+            color: #ffffff;
+            padding: 4rem 3rem;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #ffffff;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .spec-item:nth-child(1) { animation-delay: 0.2s; }
+        .spec-item:nth-child(2) { animation-delay: 0.3s; }
+        .spec-item:nth-child(3) { animation-delay: 0.4s; }
+        .spec-item:nth-child(4) { animation-delay: 0.5s; }
+
+        .benefit-item:nth-child(1) { animation-delay: 0.2s; }
+        .benefit-item:nth-child(2) { animation-delay: 0.3s; }
+        .benefit-item:nth-child(3) { animation-delay: 0.4s; }
+        .benefit-item:nth-child(4) { animation-delay: 0.5s; }
+        .benefit-item:nth-child(5) { animation-delay: 0.6s; }
+
         @media (max-width: 768px) {
-            .service-header h1 { font-size: 2rem; }
-            .why-section h2 { font-size: 1.5rem; }
-            .form-section { padding: 2rem; }
+            .specs-grid, .benefits-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="index.html" class="logo">STUDIO</a>
-            <a href="index.html" class="back-link">← Back to Home</a>
-        </nav>
+        <div class="logo">STUDIO</div>
+        <a href="index.html" class="back-link">← Back to Home</a>
     </header>
 
-    <div class="container">
-        <div class="service-header">
-            <h1>Web Design</h1>
-            <p>Modern, responsive websites that showcase your brand and engage your audience. We build fast, beautiful websites optimized for conversions.</p>
-        </div>
+    <section class="service-header">
+        <h1>Web Design</h1>
+        <p>Modern websites that drive conversions and engage your audience</p>
+    </section>
 
-        <div class="service-specs">
-            <div class="specs-grid">
-                <div class="spec-item"><h3>Style</h3><p>Modern & Clean</p></div>
-                <div class="spec-item"><h3>Primary Color</h3><p>#000000 (Black)</p></div>
-                <div class="spec-item"><h3>Typography</h3><p>System Fonts</p></div>
-                <div class="spec-item"><h3>Focus</h3><p>Conversion Optimized</p></div>
+    <section class="specs-grid">
+        <div class="spec-item">
+            <h3>Style</h3>
+            <p>Modern & Clean</p>
+        </div>
+        <div class="spec-item">
+            <h3>Color Palette</h3>
+            <p>#000000 & #FFFFFF</p>
+        </div>
+        <div class="spec-item">
+            <h3>Typography</h3>
+            <p>System Fonts</p>
+        </div>
+        <div class="spec-item">
+            <h3>Focus</h3>
+            <p>Conversion Optimized</p>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <h2>Why Choose Our Web Design?</h2>
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <h3>Responsive Design</h3>
+                <p>Perfect on mobile, tablet, and desktop devices</p>
+            </div>
+            <div class="benefit-item">
+                <h3>Fast Performance</h3>
+                <p>Lightning-quick load times that keep users engaged</p>
+            </div>
+            <div class="benefit-item">
+                <h3>SEO Ready</h3>
+                <p>Built with search engine optimization in mind</p>
+            </div>
+            <div class="benefit-item">
+                <h3>Easy to Maintain</h3>
+                <p>Clean code and structure for future updates</p>
+            </div>
+            <div class="benefit-item">
+                <h3>Conversion Focused</h3>
+                <p>Strategic design that turns visitors into customers</p>
             </div>
         </div>
+    </section>
 
-        <div class="why-section">
-            <h2>Why Choose Our Web Design?</h2>
-            <ul class="why-list">
-                <li><strong>Responsive Design</strong><p>Perfect on desktop, tablet, and mobile. Your website looks great everywhere.</p></li>
-                <li><strong>Fast Performance</strong><p>Optimized for speed. Fast-loading websites rank better and convert more.</p></li>
-                <li><strong>SEO Ready</strong><p>Built with SEO best practices. Get organic traffic from search engines.</p></li>
-                <li><strong>Easy to Maintain</strong><p>Clean code and modern frameworks make updates and maintenance simple.</p></li>
-                <li><strong>Conversion Focused</strong><p>Strategic layouts and CTAs designed to turn visitors into customers.</p></li>
-            </ul>
-        </div>
-
-        <div class="form-section">
-            <h2>Get Started with Web Design</h2>
-            <p>Let's create a beautiful, fast website that drives real business results.</p>
-
-            <form id="serviceForm">
-                <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name" name="name" required></div>
-                <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required></div>
-                <div class="form-group"><label for="phone">Phone Number *</label><input type="tel" id="phone" name="phone" required></div>
-                <div class="form-group"><label for="company">Company Name</label><input type="text" id="company" name="company"></div>
-                <div class="form-group"><label for="project">Tell us about your project *</label><textarea id="project" name="project" required placeholder="Describe your web design needs..."></textarea></div>
-                <button type="submit" class="submit-btn">Start Your Project</button>
+    <section class="form-section">
+        <div class="form-container">
+            <h2>Interested in Web Design?</h2>
+            <form id="webForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="description">Project Description</label>
+                    <textarea id="description" name="description"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Inquiry</button>
             </form>
         </div>
-    </div>
+    </section>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
-    <script type="text/javascript">
+    <script>
         emailjs.init('eNCA_ZbJ--mMLlxbr');
 
-        document.getElementById('serviceForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        document.getElementById('webForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
             const templateParams = {
                 from_name: document.getElementById('name').value,
                 from_email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
                 company: document.getElementById('company').value,
                 services: 'Web Design',
-                description: document.getElementById('project').value,
-                timeline: '',
-                budget: ''
+                description: document.getElementById('description').value
             };
 
-            emailjs.send('service_mpzm0tj', 'template_3tlqpq1', templateParams)
+            emailjs.send('service_mpzm0tj', 'template_1wby2lu', templateParams)
                 .then(function(response) {
-                    alert('✓ Inquiry sent! We will contact you at ' + templateParams.phone);
-                    document.getElementById('serviceForm').reset();
+                    alert('✓ Inquiry sent successfully! We will contact you soon.');
+                    document.getElementById('webForm').reset();
                 }, function(error) {
-                    alert('Inquiry received! We will contact you soon.');
-                    document.getElementById('serviceForm').reset();
+                    alert('Error sending inquiry. Please try again.');
+                    console.log('FAILED...', error);
                 });
         });
     </script>
