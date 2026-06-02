@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Design - Studio Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #000;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .service-header {
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .service-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .service-header p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .service-specs {
+            background: #f9f9f9;
+            padding: 2.5rem;
+            border-radius: 6px;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .spec-item h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .spec-item p {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .why-section {
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .why-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .why-list {
+            list-style: none;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .why-list li {
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border-left: 4px solid #000;
+        }
+
+        .why-list strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .why-list p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .form-section {
+            background: #000;
+            color: white;
+            padding: 3rem;
+            border-radius: 6px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .form-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .form-section p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: white;
+            color: #000;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-header h1 {
+                font-size: 2rem;
+            }
+
+            .why-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .form-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">STUDIO</a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="service-header">
+            <h1>UI/UX Design</h1>
+            <p>Create intuitive, beautiful interfaces that users love. We design experiences that engage, delight, and convert your users into loyal customers.</p>
+        </div>
+
+        <div class="service-specs">
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <h3>Style</h3>
+                    <p>Modern & Minimal</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Primary Color</h3>
+                    <p>#000000 (Black)</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Typography</h3>
+                    <p>System Fonts</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Approach</h3>
+                    <p>User-Centered</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="why-section">
+            <h2>Why Choose Our UI/UX Design?</h2>
+            <ul class="why-list">
+                <li>
+                    <strong>User Research First</strong>
+                    <p>We start by understanding your users deeply through research and testing to ensure designs solve real problems.</p>
+                </li>
+                <li>
+                    <strong>Intuitive Interfaces</strong>
+                    <p>Every element has purpose. We create clean, intuitive interfaces that require minimal learning curve.</p>
+                </li>
+                <li>
+                    <strong>High Conversion</strong>
+                    <p>Strategic design patterns increase user engagement and conversions without compromising aesthetics.</p>
+                </li>
+                <li>
+                    <strong>Accessibility</strong>
+                    <p>We design for everyone. Full WCAG compliance ensures your product is usable by all users.</p>
+                </li>
+                <li>
+                    <strong>Performance</strong>
+                    <p>Beautiful design paired with excellent performance. Fast, responsive, and optimized across all devices.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="form-section">
+            <h2>Get Started with UI/UX Design</h2>
+            <p>Tell us about your project and we'll create a beautiful, intuitive interface for your users.</p>
+
+            <form id="serviceForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+
+                <div class="form-group">
+                    <label for="project">Tell us about your project *</label>
+                    <textarea id="project" name="project" required placeholder="Describe your UI/UX design needs..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Start Your Project</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('serviceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = {
+                service: 'UI/UX Design',
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                project: document.getElementById('project').value,
+                submittedAt: new Date().toISOString()
+            };
+
+            console.log('📦 Service Inquiry:', formData);
+            alert('Thank you! We will contact you soon at ' + formData.phone);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
